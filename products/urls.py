@@ -5,13 +5,14 @@ from . import views
 
 from rest_framework.routers import DefaultRouter
 from .views import ProductGenericView,ProductDetailView
-from products.views import CategoryDetailView,BrandGenericView,CategoryGenericView,BrandDetailView
+from products.views import CategoryDetailView,BrandGenericView,CategoryGenericView,BrandDetailView,product_html
 
 # router = DefaultRouter()
 # router.register(r'product',ProductViewSet , basename='user')
 # urlpatterns = router.urls
 
 urlpatterns = [
+    path('product_html',product_html,name='product_html'),
     path('products/', ProductGenericView.as_view(), name='product'),
     path('product/<slug>', ProductDetailView.as_view(), name='details'),
     path('categorys/',CategoryGenericView.as_view(), name='category'),

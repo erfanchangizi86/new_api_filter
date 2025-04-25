@@ -13,6 +13,10 @@ from rest_framework.views import APIView
 from .filters import ProductFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
+
+def product_html(request):
+    return render(request,'api_test/api.html')
+
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.filter(is_active=True, is_deleted=False)
     serializer_class = ProductSerializer

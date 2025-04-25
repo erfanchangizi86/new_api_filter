@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'products'
+    'products',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
 
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -102,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -132,5 +136,17 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ),
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API مستندات Erfan',
+    'DESCRIPTION': 'مستندات خودکار با Swagger برای پروژه Django REST',
+    'VERSION': '1.0.0',
+}
+
+
